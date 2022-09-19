@@ -35,6 +35,7 @@
               placeholder="Find"
               v-model.trim="searchTitle"
               ref="search"
+              @input="highlightedIndex = -1"
               @keyup.enter.prevent="onDropdownListItemClick()"
               @keyup.up.prevent="highlightPrevious"
               @keyup.down.prevent="highlightNext(filteredDropDownList.length)"
