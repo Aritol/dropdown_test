@@ -36,6 +36,7 @@
               v-model.trim="searchTitle"
               ref="search"
               @input="highlightedIndex = -1"
+              @keyup.escape.prevent="reset"
               @keyup.enter.prevent="onDropdownListItemClick()"
               @keyup.up.prevent="highlightPrevious"
               @keyup.down.prevent="highlightNext(filteredDropDownList.length)"
@@ -101,6 +102,12 @@ export default {
   },
 
   methods: {
+    reset() {
+      this.title = "Select menu item";
+      this.dropDownActive = false;
+      this.highlightedIndex = -1;
+    },
+
     onDropDownClick() {
       this.dropDownActive = !this.dropDownActive;
 
